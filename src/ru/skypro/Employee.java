@@ -6,8 +6,9 @@ public class Employee {
     private String middleName;
     private String lastName;
     private String department;
-    private int id = 1;
+    private int id;
     private double salary;
+    private static int count = 0;
 
     public Employee(String firstName, String middleName, String lastName, double salary, String department) {
         this.firstName = firstName;
@@ -15,7 +16,7 @@ public class Employee {
         this.lastName = lastName;
         this.salary = salary;
         this.department = department;
-        id = id++;
+        this.id = ++count;
     }
 
     public String getEmployeeFirstName() {
@@ -49,6 +50,8 @@ public class Employee {
     public String getEmployeeFullName() {
         return this.middleName + " " + this.firstName + " " + this.lastName;
     }
+
+    public int getEmployeeId() { return this.id; }
 
     @Override
     public String toString() {
